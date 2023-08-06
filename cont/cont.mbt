@@ -156,12 +156,12 @@ func init {
 // usage 3: delimited continuation
 
 func init {
-  fn r(n) {
+  fn r(n : Int) {
     reset(
-      return_(1).bind(
+      return_(n).bind(
         fn(k) {
           if k < 10 {
-            shift(fn(k0) { return_(k0(-1)) })
+            shift(fn(k0) { return_(-1) })
           } else {
             return_(k + 1)
           }
@@ -171,6 +171,6 @@ func init {
   }
 
   println(r(1)) // -> -3
-  println(r(10)) // -> 33
+  println(r(10)) // -> 36
 }
 
